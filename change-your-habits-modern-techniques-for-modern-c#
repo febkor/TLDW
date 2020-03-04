@@ -1,0 +1,18 @@
+Title: "Change your habits: Modern techniques for modern C#"
+Presenter: Bill Wagner
+Source: https://www.youtube.com/watch?v=aUbXGs7YTGo
+---
+
+- use tuples more [i.e. be more Pythonic]
+	- multiple assignment: (_X, _Y) = (x, y)
+	- equality: (_X, _Y) == (x, y)
+	- swapping variables: (x, y) = (y, x)
+- use readonly structs if immutabality is desired
+	- readonly get (16:00)
+- nullable ref types (>= .net core 3.1). If enabled:
+	- Equals override becomes Equals(object? obj)
+	- use pattern matching to avoid explicit null-checks e.g.: bool Equals(object? obj) => (obj is Point other) ? this == other : false;
+- use throw expressions
+	- Value = value ?? new ArgumentNullException(nameof(value))
+	- _ = value ?? new ArgumentNullException(nameof(value)) as an alternative to an if (value is null) throw ... [can't say I like this]
+- switch expressions are nice. Learn them. Use them. [40:00]
